@@ -10,4 +10,4 @@ helm repo add mycharts s3://atanu-poc/helm/charts
 
 helm s3 push ./busybox-0.1.0.tgz mycharts
 
-docker run --rm -it  praqma/helmsman:v1.6.1-helm-v2.10.0 helmsman -f busybox.dsf
+docker run --rm -it  praqma/helmsman:v1.6.1-helm-v2.10.0 helmsman -f busybox.dsf.yaml
