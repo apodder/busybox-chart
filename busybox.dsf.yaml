@@ -1,17 +1,17 @@
-# version: v1.5.0
 # metadata -- add as many key/value pairs as you want
 metadata:
   org: "example.com"
   maintainer: "k8s-admin (me@example.com)"
   description: "example Desired State File for demo purposes."
 
+certificates:
+  caClient: "./client.crt" # GCS bucket path
+  caCrt: "./ca.crt" # S3 bucket path
+  caKey: "./ca.key" # valid local file relative path
+
 # paths to the certificate for connecting to the cluster
 # You can skip this if you use Helmsman on a machine with kubectl already connected to your k8s cluster.
 # you have to use exact key names here : 'caCrt' for certificate and 'caKey' for the key and caClient for the client certificate
-certificates:
-  #caClient: "gs://mybucket/client.crt" # GCS bucket path
-  #caCrt: "s3://mybucket/ca.crt" # S3 bucket path
-  #caKey: "../ca.key" # valid local file relative path
 
 settings:
   kubeContext: "minikube" # will try connect to this context first, if it does not exist, it will be created using the details below
