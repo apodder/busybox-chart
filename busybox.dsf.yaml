@@ -19,7 +19,7 @@ settings:
   #password: "$K8S_PASSWORD" # the name of an environment variable containing the k8s password
   #clusterURI: "$K8S_URI" # the name of an environment variable containing the cluster API
   #clusterURI: "https://192.168.99.100:8443" # equivalent to the above
-  #serviceAccount: "foo" # k8s serviceaccount must be already defined, validation error will be thrown otherwise
+  serviceAccount: "rmqhalmsman" # k8s serviceaccount must be already defined, validation error will be thrown otherwise
   storageBackend: "secret" # default is configMap
   #slackWebhook:  "$slack" # or your slack webhook url
   #reverseDelete: false # reverse the priorities on delete
@@ -28,7 +28,7 @@ settings:
 namespaces:
   rmq:
     protected: false
-    installTiller: true
+    installTiller: false
     #tillerServiceAccount: "tiller-staging" # should already exist in the staging namespace
     #caCert: "secrets/ca.cert.pem" # or an env var, e.g. "$CA_CERT_PATH"
     #tillerCert: "secrets/tiller.cert.pem" # or S3 bucket s3://mybucket/tiller.crt
@@ -59,8 +59,8 @@ apps:
       chart: "mycharts/busybox" # changing the chart name means delete and recreate this chart
       version: "0.1.0" # chart version
       ### Optional values below
-      name: "jenkins" # should be unique across all apps
-      description: "jenkins"
+      name: "samplebusybox" # should be unique across all apps
+      description: "sample busybox:"
       valuesFile: "" # leaving it empty uses the default chart values
       purge: false # will only be considered when there is a delete operation
       test: false # run the tests when this release is installed for the first time only
